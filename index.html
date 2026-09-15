@@ -38,7 +38,7 @@ img{max-width:100%;display:block}
 .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:0.14em;font-size:0.72rem;color:var(--ink-mut)}
 
 /* ---- brushed-carbon texture layer ---- */
-.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.5;
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.16;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");}
 main,header,footer{position:relative;z-index:1}
 
@@ -46,17 +46,19 @@ main,header,footer{position:relative;z-index:1}
 header{position:sticky;top:0;z-index:50;background:rgba(13,15,18,0.82);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:28px;height:68px}
-.brand{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:900;
-  font-size:1.28rem;letter-spacing:0.01em}
-.brand .mk{color:var(--amber)}
-.logo-badge{width:34px;height:34px;flex:0 0 auto}
+.brand{display:flex;align-items:center;gap:9px}
+.logo-badge{display:inline-flex;align-items:center;justify-content:center;height:32px;padding:0 9px;
+  font-family:var(--disp);font-weight:900;font-size:1.04rem;letter-spacing:0.04em;line-height:1;
+  color:#161007;background:var(--amber);border-radius:3px;flex:0 0 auto}
+.brand .wm{font-family:var(--disp);font-weight:800;font-size:1.22rem;letter-spacing:0.01em;color:var(--ink)}
 .nav-links{display:flex;gap:26px;margin-left:auto}
 .nav-links a{font-size:0.82rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:0.12em;
   color:var(--ink-mut);padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
 .nav-links a:hover{color:var(--ink);border-color:var(--amber)}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#161007;
-  font-family:var(--mono);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;font-size:0.8rem;
-  padding:11px 16px;border-radius:2px;transition:background .2s,transform .1s}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#161007;white-space:nowrap;
+  font-family:var(--mono);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;font-size:0.78rem;
+  padding:0 16px;height:40px;border-radius:2px;transition:background .2s,transform .1s}
+.nav-cta svg{width:17px;height:17px;flex:0 0 auto}
 .nav-cta:hover{background:var(--amber-soft)}
 .nav-cta:active{transform:translateY(1px)}
 .burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:2px;
@@ -82,7 +84,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,15,18,0.82);backdrop-
 .lede{margin:22px 0 30px;max-width:46ch;color:var(--ink-mut);font-size:1.06rem}
 .lede b{color:var(--ink);font-weight:600}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:2px;
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:2px;white-space:nowrap;
   font-family:var(--mono);text-transform:uppercase;letter-spacing:0.08em;font-size:0.86rem;font-weight:600;
   transition:transform .1s,background .2s,border-color .2s}
 .btn svg{width:19px;height:19px}
@@ -239,12 +241,8 @@ footer{background:var(--carbon-2);border-top:1px solid var(--line);padding:54px 
 <header>
   <div class="wrap nav">
     <a href="#top" class="brand" aria-label="GAV Auto, acasă">
-      <svg class="logo-badge" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="37" height="37" rx="3" stroke="#ff9f1c" stroke-width="2"/>
-        <path d="M9 27l3.4-13h3.2L19 27h-3l-.5-2.4h-3L12 27H9zm4-4.7h2.1l-1-4.8-1.1 4.8z" fill="#ff9f1c"/>
-        <path d="M20.5 14h3l2.2 8.8L28 14h3l-3.4 13h-3.6L20.5 14z" fill="#eef1f5"/>
-      </svg>
-      <span>GAV<span class="mk"> Auto</span></span>
+      <span class="logo-badge">GAV</span>
+      <span class="wm">Auto</span>
     </a>
     <nav class="nav-links" id="nav">
       <a href="#servicii">Servicii</a>
@@ -481,7 +479,7 @@ footer{background:var(--carbon-2);border-top:1px solid var(--line);padding:54px 
   <div class="wrap">
     <div class="foot">
       <div>
-        <div class="brand"><span>GAV<span class="mk"> Auto</span></span></div>
+        <div class="brand"><span class="logo-badge">GAV</span><span class="wm">Auto</span></div>
         <p>Service auto complet multimarcă în Brașov. Mecanică, vopsitorie, tinichigerie și stație ITP proprie. Autorizat RAR din 2016.</p>
       </div>
       <div>
