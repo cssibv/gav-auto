@@ -1,0 +1,8 @@
+# Interne (nu se publică)
+PRODUCT.md
+DESIGN.md
+.impeccable/
+*.png
+*.log
+.DS_Store
+Thumbs.db
