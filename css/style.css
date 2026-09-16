@@ -164,7 +164,7 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -14px rgba(15,23,
 @media (max-width:640px){.brand-tile{height:54px;width:98px;margin-right:10px;padding:9px 13px}}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
-@media (max-width:640px){.brands-label{display:none}.brands .wrap{gap:0}}
+@media (max-width:640px){.brands-label{display:none}.brands .wrap{gap:0;padding-top:16px;padding-bottom:16px}}
 
 /* section head */
 .shead{max-width:640px;margin-bottom:44px}
