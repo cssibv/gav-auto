@@ -148,7 +148,8 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -14px rgba(15,23,
 .marquee:hover .marquee-track{animation-play-state:paused}
 .brand-tile{flex:0 0 auto;margin-right:14px;background:#fff;border-radius:12px;height:66px;width:120px;
   display:flex;align-items:center;justify-content:center;padding:11px 16px;box-shadow:0 6px 16px -8px rgba(0,0,0,0.35)}
-.brand-tile img{max-height:100%;max-width:100%;width:auto;object-fit:contain;display:block}
+.brand-tile img{max-height:100%;max-width:100%;width:auto;object-fit:contain;display:block;
+  filter:drop-shadow(0 1px 1.5px rgba(15,23,42,0.55)) contrast(1.06)}
 @media (max-width:640px){.brand-tile{height:54px;width:98px;margin-right:10px;padding:9px 13px}}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
