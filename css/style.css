@@ -137,7 +137,7 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -14px rgba(15,23,
 
 /* brands marquee (multimarca) */
 .brands{background:var(--navy);color:#fff;overflow:hidden}
-.brands .wrap{display:flex;align-items:center;gap:24px;padding-top:13px;padding-bottom:13px}
+.brands .wrap{display:flex;align-items:center;gap:24px;padding-top:18px;padding-bottom:18px}
 .brands-label{flex:0 0 auto;font-family:var(--disp);font-weight:700;font-size:0.95rem;color:#fff;
   display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
 .brands-label svg{width:20px;height:20px;color:#8fb4ff}
@@ -146,8 +146,10 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -14px rgba(15,23,
   mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
 .marquee-track{display:flex;width:max-content;animation:marq 42s linear infinite;will-change:transform}
 .marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-track span{flex:0 0 auto;margin-right:12px;color:#dbe4f5;font-weight:600;font-size:0.92rem;
-  border:1px solid rgba(255,255,255,0.16);border-radius:999px;padding:7px 15px;white-space:nowrap}
+.brand-tile{flex:0 0 auto;margin-right:14px;background:#fff;border-radius:12px;height:66px;width:120px;
+  display:flex;align-items:center;justify-content:center;padding:11px 16px;box-shadow:0 6px 16px -8px rgba(0,0,0,0.35)}
+.brand-tile img{max-height:100%;max-width:100%;width:auto;object-fit:contain;display:block}
+@media (max-width:640px){.brand-tile{height:54px;width:98px;margin-right:10px;padding:9px 13px}}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 @media (max-width:640px){.brands-label{display:none}.brands .wrap{gap:0}}
