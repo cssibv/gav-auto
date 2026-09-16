@@ -447,6 +447,7 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
 }
 @media (max-width:640px){
   body{font-size:16px}
+  .cta-row .btn,.review-cta .btn{width:100%}
   .nav-links,.nav-cta{display:none}
   .burger{display:flex}
   .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;
