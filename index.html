@@ -13,7 +13,8 @@
 <meta property="og:locale" content="ro_RO">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"></noscript>
 <style>
 :root{
   --bg:#ffffff; --bg-2:#f4f6fa; --panel:#ffffff;
@@ -290,7 +291,7 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
       </div>
       <div class="hero-media">
         <!-- PLACEHOLDER: poză Pexels (Gustavo Fring). De înlocuit cu foto real din service. -->
-        <div class="ph"><img src="https://images.pexels.com/photos/6870324/pexels-photo-6870324.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mecanic la GAV Auto verificând o mașină în service" loading="eager" width="1200" height="800"></div>
+        <div class="ph"><img src="https://images.pexels.com/photos/6870324/pexels-photo-6870324.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mecanic la GAV Auto verificând o mașină în service" loading="eager" fetchpriority="high" width="1200" height="800"></div>
         <div class="badge-card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 3l7 3v6a9 9 0 0 1-7 8.7A9 9 0 0 1 5 12V6l7-3z"/></svg></div>
           <div><b>Autorizat RAR</b><span>Service multimarcă din 2016</span></div>
@@ -496,7 +497,8 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
 var burger=document.getElementById('burger'),nav=document.getElementById('nav'),header=document.getElementById('header');
 burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);});
 nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded',false);});});
-function onScroll(){header.classList.toggle('scrolled',window.scrollY>8);}
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){header.classList.toggle('scrolled',window.scrollY>8);tick=false;});}
 onScroll();window.addEventListener('scroll',onScroll,{passive:true});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
