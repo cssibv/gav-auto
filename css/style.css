@@ -336,8 +336,31 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
 .article-figure{margin:0 0 8px;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/8}
 .article-figure img{width:100%;height:100%;object-fit:cover}
 
+/* reviews */
+.reviews{background:var(--bg-2)}
+.rating-stars{display:inline-block;position:relative;font-family:Arial,sans-serif;font-size:1.15rem;line-height:1;letter-spacing:1px}
+.rating-stars::before{content:"★★★★★";color:#dfe4ee}
+.rating-stars::after{content:"★★★★★";color:#f5a623;position:absolute;inset:0;width:var(--pct,100%);overflow:hidden}
+.grev{display:inline-flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:14px 20px;box-shadow:var(--shadow-sm)}
+.grev .num{font-family:var(--disp);font-weight:800;font-size:1.9rem;color:var(--ink);line-height:1}
+.grev .txt{font-size:0.9rem;color:var(--ink-2);text-align:left;margin-top:4px}
+.grev .txt b{color:var(--ink)}
+.grev .gicon{width:26px;height:26px;flex:0 0 auto}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.review{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:left}
+.review .rating-stars{font-size:1rem}
+.review p{margin:12px 0 0;color:var(--ink-2);font-size:0.99rem}
+.review .who{margin-top:16px;display:flex;align-items:center;gap:11px}
+.review .av{width:40px;height:40px;border-radius:50%;background:var(--brand-soft);color:var(--brand);
+  display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;flex:0 0 auto}
+.review .who b{font-size:0.95rem;color:var(--ink)}
+.review .who span{display:block;font-size:0.8rem;color:var(--ink-2)}
+.review-cta{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
 /* responsive */
 @media (max-width:920px){
+  .reviews-grid{grid-template-columns:repeat(2,1fr)}
   .hero .wrap{grid-template-columns:1fr;gap:38px}
   .hero-media{max-width:460px}
   .daune .wrap,.facility .wrap,.contact .wrap{grid-template-columns:1fr;gap:32px}
@@ -356,7 +379,7 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
   .nav-links.open a{padding:14px 0;border-bottom:1px solid var(--line)}
   section{padding:60px 0}
   .svc-grid{grid-template-columns:1fr}
-  .related,.blog-grid{grid-template-columns:1fr}
+  .related,.blog-grid,.reviews-grid{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
   .badge-card{left:12px;right:12px;bottom:-26px}
   .hero-media{margin-bottom:22px}
