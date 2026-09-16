@@ -76,6 +76,21 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -14px rgba(15,23,
   width:46px;height:42px;color:var(--ink);cursor:pointer;align-items:center;justify-content:center}
 .burger svg{width:22px;height:22px}
 
+/* nav dropdown */
+.has-drop{position:relative;display:flex;align-items:center}
+.nav-links .drop-toggle{display:inline-flex;align-items:center;gap:5px}
+.chev{width:13px;height:13px;opacity:.65;transition:transform .2s}
+.has-drop:hover .chev,.has-drop:focus-within .chev{transform:rotate(180deg)}
+.drop{position:absolute;top:100%;left:-14px;padding-top:14px;min-width:250px;opacity:0;visibility:hidden;
+  transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:60}
+.has-drop:hover .drop,.has-drop:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop-inner{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:8px}
+.nav-links .drop a{display:block;padding:10px 14px;border-radius:9px;border:0;color:var(--ink-2);
+  font-size:0.95rem;font-weight:600}
+.nav-links .drop a:hover{background:var(--bg-2);color:var(--brand)}
+.drop .sep{height:1px;background:var(--line);margin:6px 6px}
+.nav-links .drop a.all{color:var(--brand)}
+
 /* hero (homepage) */
 .hero{padding:64px 0 74px;background:
   radial-gradient(90% 70% at 88% 0%, var(--brand-soft), transparent 60%)}
@@ -377,6 +392,12 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
   .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;
     background:#fff;border-bottom:1px solid var(--line);padding:8px 24px 16px;box-shadow:var(--shadow-sm)}
   .nav-links.open a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .has-drop{display:block}
+  .nav-links.open .drop-toggle .chev{display:none}
+  .nav-links.open .drop{position:static;opacity:1;visibility:visible;transform:none;padding-top:0;min-width:0}
+  .nav-links.open .drop-inner{background:transparent;border:0;box-shadow:none;padding:0}
+  .nav-links.open .drop a{padding:12px 0 12px 16px;font-weight:600}
+  .nav-links.open .drop .sep{display:none}
   section{padding:60px 0}
   .svc-grid{grid-template-columns:1fr}
   .related,.blog-grid,.reviews-grid{grid-template-columns:1fr}
