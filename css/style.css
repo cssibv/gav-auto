@@ -347,8 +347,8 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
 .grev .txt{font-size:0.9rem;color:var(--ink-2);text-align:left;margin-top:4px}
 .grev .txt b{color:var(--ink)}
 .grev .gicon{width:26px;height:26px;flex:0 0 auto}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
-.review{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:left}
+.reviews-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:36px}
+.review{flex:1 1 300px;max-width:380px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:left}
 .review .rating-stars{font-size:1rem}
 .review p{margin:12px 0 0;color:var(--ink-2);font-size:0.99rem}
 .review .who{margin-top:16px;display:flex;align-items:center;gap:11px}
