@@ -31,6 +31,18 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  // FAQ acordeon: o singură întrebare deschisă pe rând
+  document.querySelectorAll('.faq').forEach(function (group) {
+    var items = group.querySelectorAll('details');
+    items.forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (d.open) {
+          items.forEach(function (o) { if (o !== d) o.open = false; });
+        }
+      });
+    });
+  });
+
   var rv = document.querySelectorAll('.rv');
   if (rv.length && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
