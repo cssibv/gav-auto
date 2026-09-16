@@ -262,8 +262,9 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
 .cta-card h3{color:#fff;font-size:1.25rem}
 .cta-card p{color:#aebbd6;font-size:0.96rem;margin:8px 0 18px}
 .cta-card .btn{width:100%}
-.cta-card .btn-wa{background:#25d366;color:#fff;margin-top:10px}
-.cta-card .btn-wa:hover{background:#1eb858}
+.btn-wa{background:#25d366;color:#fff}
+.btn-wa:hover{background:#1eb858;color:#fff}
+.cta-card .btn-wa{margin-top:10px}
 .cta-card .mini{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.14);
   display:grid;gap:10px;font-size:0.92rem;color:#c7d2e8}
 .cta-card .mini div{display:flex;gap:9px;align-items:flex-start}
