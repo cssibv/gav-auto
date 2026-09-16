@@ -270,6 +270,25 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
 .page-hero.red{background:radial-gradient(80% 90% at 90% 0%, #fde8e8, transparent 62%)}
 .page-hero.red .eyebrow{color:var(--red)}
 .page-hero.red .eyebrow::before{background:var(--red)}
+/* hero cu poza + overlay */
+.page-hero.photo{position:relative;padding:66px 0 68px;border-bottom:0;overflow:hidden;color:#fff;
+  background-size:cover;background-position:center}
+.page-hero.photo::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg, rgba(8,17,42,0.92) 0%, rgba(8,17,42,0.74) 44%, rgba(8,17,42,0.32) 100%)}
+.page-hero.photo .wrap{position:relative;z-index:1}
+.page-hero.photo h1{color:#fff}
+.page-hero.photo .lede{color:#e4eaf6}
+.page-hero.photo .eyebrow{color:#a8c5ff}
+.page-hero.photo .eyebrow::before{background:#a8c5ff}
+.page-hero.photo .crumbs,.page-hero.photo .crumbs a{color:#c7d2ea}
+.page-hero.photo .crumbs a:hover{color:#fff}
+.page-hero.photo .crumbs span[aria-current]{color:#fff}
+.page-hero.photo .crumbs .sep{color:rgba(255,255,255,0.4)}
+.page-hero.photo .btn-ghost{background:rgba(255,255,255,0.08);color:#fff;border-color:rgba(255,255,255,0.5)}
+.page-hero.photo .btn-ghost:hover{background:rgba(255,255,255,0.16);border-color:#fff;color:#fff}
+.page-hero.photo.urgent::before{background:linear-gradient(105deg, rgba(58,12,14,0.92) 0%, rgba(22,14,32,0.74) 44%, rgba(22,14,32,0.3) 100%)}
+.page-hero.photo.urgent .eyebrow{color:#ff9d9d}
+.page-hero.photo.urgent .eyebrow::before{background:#ff6b6b}
 
 /* layout serviciu: continut + card lipicios */
 .svc-body{padding-top:44px}
