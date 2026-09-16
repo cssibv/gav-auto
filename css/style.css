@@ -53,6 +53,8 @@ section{padding:86px 0}
 .btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
 .btn-red{background:var(--red);color:#fff;box-shadow:0 10px 22px -10px rgba(220,38,38,0.7)}
 .btn-red:hover{background:#b91c1c}
+.btn-soft{background:var(--brand-soft);color:var(--brand-dark)}
+.btn-soft:hover{background:#dbe7ff;color:var(--brand-dark)}
 
 /* top-bar de incredere */
 .topbar{background:var(--navy);color:#c7d2e8;font-size:0.82rem}
