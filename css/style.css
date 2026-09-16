@@ -135,6 +135,23 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -14px rgba(15,23,
 .strip div{display:flex;align-items:center;gap:11px;font-weight:600;font-size:0.98rem}
 .strip svg{width:22px;height:22px;color:#8fb4ff;flex:0 0 auto}
 
+/* brands marquee (multimarca) */
+.brands{background:var(--navy);color:#fff;overflow:hidden}
+.brands .wrap{display:flex;align-items:center;gap:24px;padding-top:13px;padding-bottom:13px}
+.brands-label{flex:0 0 auto;font-family:var(--disp);font-weight:700;font-size:0.95rem;color:#fff;
+  display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
+.brands-label svg{width:20px;height:20px;color:#8fb4ff}
+.marquee{flex:1 1 auto;min-width:0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marq 42s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{flex:0 0 auto;margin-right:12px;color:#dbe4f5;font-weight:600;font-size:0.92rem;
+  border:1px solid rgba(255,255,255,0.16);border-radius:999px;padding:7px 15px;white-space:nowrap}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+@media (max-width:640px){.brands-label{display:none}.brands .wrap{gap:0}}
+
 /* section head */
 .shead{max-width:640px;margin-bottom:44px}
 .shead.center{margin-left:auto;margin-right:auto;text-align:center}
