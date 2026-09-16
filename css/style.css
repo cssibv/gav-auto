@@ -148,7 +148,7 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -14px rgba(15,23,
 
 /* brands marquee (multimarca) */
 .brands{background:var(--navy);color:#fff;overflow:hidden}
-.brands .wrap{display:flex;align-items:center;gap:24px;padding-top:18px;padding-bottom:18px}
+.brands .wrap{display:flex;align-items:center;gap:24px;padding-top:16px;padding-bottom:42px}
 .brands-label{flex:0 0 auto;font-family:var(--disp);font-weight:700;font-size:0.95rem;color:#fff;
   display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
 .brands-label svg{width:20px;height:20px;color:#8fb4ff}
