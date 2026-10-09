@@ -515,11 +515,11 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
 
 /* Logo */
 .logo-d{display:inline-flex;align-items:center}
-.logo-d .lt{display:inline-block;font-family:var(--disp);font-weight:800;font-size:4rem;line-height:1;letter-spacing:-0.02em;
+.logo-d .lt{display:inline-block;font-family:var(--disp);font-weight:800;font-size:3rem;line-height:1;letter-spacing:-0.02em;
   font-style:italic;transform:skewX(-9deg);color:var(--ink);white-space:nowrap}
 .logo-d .sl{color:var(--red)}
 .logo-d .au{color:var(--brand)}
 .foot .logo-d .lt{color:#fff}
 .foot .logo-d .au{color:#5b8cff}
-@media (max-width:920px){.logo-d .lt{font-size:3rem}}
-@media (max-width:560px){.logo-d .lt{font-size:2.5rem}}
+@media (max-width:920px){.logo-d .lt{font-size:2.7rem}}
+@media (max-width:560px){.logo-d .lt{font-size:2.4rem}}
