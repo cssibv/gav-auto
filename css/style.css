@@ -491,3 +491,24 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
   .wa-fab{bottom:84px;right:16px;width:54px;height:54px}
   .wa-fab svg{width:30px;height:30px}
 }
+
+/* Photos inside service pages */
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 0}
+.shots.one{grid-template-columns:1fr}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:14px;border:1px solid var(--line)}
+.shots.one img{aspect-ratio:16/9}
+.shots figcaption{margin-top:8px;font-size:0.9rem;color:var(--ink-2)}
+
+/* Workshop gallery (homepage) */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-grid figure{position:relative;margin:0;aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.gallery-grid img{display:block;width:100%;height:100%;object-fit:cover}
+.gallery-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 13px;color:#fff;font-weight:600;font-size:0.96rem;
+  background:linear-gradient(to top, rgba(11,18,36,0.86), rgba(11,18,36,0))}
+@media (max-width:920px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){
+  .shots{grid-template-columns:1fr}
+  .gallery-grid{gap:10px}
+  .gallery-grid figcaption{font-size:0.82rem;padding:26px 10px 9px}
+}
