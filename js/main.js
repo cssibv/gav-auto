@@ -43,6 +43,31 @@
     });
   });
 
+  // Slider înainte/după: tragi cu mouse-ul sau degetul, ori săgețile de la tastatură
+  document.querySelectorAll('.ba-frame').forEach(function (frame) {
+    var range = frame.querySelector('.ba-range');
+    var drag = false;
+    function set(p) {
+      p = Math.max(0, Math.min(100, p));
+      frame.style.setProperty('--pos', p + '%');
+      if (range) range.value = p;
+    }
+    function fromPointer(e) {
+      var r = frame.getBoundingClientRect();
+      set((e.clientX - r.left) / r.width * 100);
+    }
+    frame.addEventListener('pointerdown', function (e) {
+      drag = true;
+      if (frame.setPointerCapture) frame.setPointerCapture(e.pointerId);
+      fromPointer(e);
+    });
+    frame.addEventListener('pointermove', function (e) { if (drag) fromPointer(e); });
+    ['pointerup', 'pointercancel'].forEach(function (t) {
+      frame.addEventListener(t, function () { drag = false; });
+    });
+    if (range) range.addEventListener('input', function () { set(+range.value); });
+  });
+
   var rv = document.querySelectorAll('.rv');
   if (rv.length && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {

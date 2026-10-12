@@ -6,3 +6,6 @@ DESIGN.md
 *.log
 .DS_Store
 Thumbs.db
+!favicon-32.png
+!favicon-192.png
+!apple-touch-icon.png

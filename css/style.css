@@ -523,3 +523,19 @@ footer{background:var(--navy);color:#c7d2e8;padding:56px 0 120px}
 .foot .logo-d .au{color:#5b8cff}
 @media (max-width:920px){.logo-d .lt{font-size:2.7rem}}
 @media (max-width:560px){.logo-d .lt{font-size:2.4rem}}
+
+/* Before/after slider */
+.ba{margin:22px 0 0}
+.ba-frame{position:relative;aspect-ratio:3/2;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);
+  --pos:50%;cursor:ew-resize;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.ba-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba-frame .ba-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba-tag{position:absolute;top:12px;padding:5px 12px;border-radius:999px;background:rgba(11,18,36,0.8);color:#fff;font-size:0.82rem;font-weight:700;pointer-events:none}
+.ba-tag.l{left:12px}
+.ba-tag.r{right:12px}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;pointer-events:none}
+.ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(11,18,36,0.22);pointer-events:none}
+.ba-knob{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;color:var(--brand);
+  display:grid;place-items:center;box-shadow:0 4px 14px rgba(11,18,36,0.35)}
+.ba-range:focus-visible + .ba-line .ba-knob{outline:3px solid var(--brand);outline-offset:3px}
+.ba figcaption{margin-top:8px;font-size:0.9rem;color:var(--ink-2)}
