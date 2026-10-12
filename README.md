@@ -10,4 +10,4 @@ Deschide `index.html` în browser.
 
 ## Contact
 
-Tel: 0740 039 598 · Str. Narciselor nr. 56, Brașov · Luni–Vineri 08:30–17:00
+Tel: 0740 039 598 · Str. Narciselor nr. 56, Brașov · Luni - Vineri 08:30 - 17:00
