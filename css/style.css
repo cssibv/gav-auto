@@ -790,3 +790,15 @@ form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .btn-waze{background:#33ccff;color:#0b1f4d}
 .btn-waze:hover{background:#19bdf3;color:#0b1f4d}
 @media (max-width:400px){.map-actions{grid-template-columns:1fr}}
+
+/* Header: phone number as a link, WhatsApp as the button */
+.nav-tel{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:0.98rem;color:var(--ink);white-space:nowrap}
+.nav-tel:hover{color:var(--brand)}
+.nav-tel svg{width:16px;height:16px;flex:0 0 auto;color:var(--brand)}
+.nav-cta.wa{background:#25d366}
+.nav-cta.wa:hover{background:#1eb858}
+.nav-cta.wa svg{fill:currentColor;stroke:none}
+.nav{gap:22px}
+@media (max-width:1180px){.nav-tel{display:none}}
+.daune-more{margin:18px 0 0;font-weight:600}
+.daune-more a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.4);text-underline-offset:4px}
