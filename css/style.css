@@ -571,9 +571,11 @@ section{padding:68px 0}
 .daune .ba-frame{border-color:rgba(255,255,255,0.14)}
 .daune .ba figcaption{color:#aebbd6}
 .gallery-grid.four{grid-template-columns:repeat(4,1fr);margin-top:36px}
+@media (min-width:921px){.svc-grid.four.five{grid-template-columns:repeat(5,1fr)}}
 @media (max-width:920px){
   section{padding:52px 0}
   .svc-grid.four,.gallery-grid.four{grid-template-columns:repeat(2,1fr)}
+  .svc-grid.five .card:last-child{grid-column:1/-1}
 }
 @media (max-width:640px){
   .svc-grid.four{gap:10px}
