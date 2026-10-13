@@ -4,3 +4,4 @@ deployment:
     - export DEPLOYPATH="$HOME/gavauto.ro"
     - /bin/cp -R * "$DEPLOYPATH"
     - /bin/cp -R ./.htaccess "$DEPLOYPATH"
+    - /bin/rm -f "$DEPLOYPATH"/*.md
