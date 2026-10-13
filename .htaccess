@@ -4,3 +4,9 @@ RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://gavauto.ro%{REQUEST_URI} [L,R=301]
 
 ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+<Files "config.js">
+Header set Cache-Control "no-cache"
+</Files>
+</IfModule>
