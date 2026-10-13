@@ -96,7 +96,7 @@
   if (callbar && heroCta && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (es) {
       callbar.classList.toggle('off', es[0].isIntersecting);
-    }, { rootMargin: '-110px 0px 0px 0px' }).observe(heroCta);
+    }, { rootMargin: '-122px 0px 0px 0px' }).observe(heroCta);
   }
 
   var rv = document.querySelectorAll('.rv');
