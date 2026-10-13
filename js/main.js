@@ -90,6 +90,15 @@
     } catch (err) {}
   }
 
+  // bara fixă de jos apare doar după ce butoanele din antet ies din ecran
+  var callbar = document.querySelector('.callbar');
+  var heroCta = document.querySelector('.hero .cta-row, .page-hero .cta-row');
+  if (callbar && heroCta && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      callbar.classList.toggle('off', es[0].isIntersecting);
+    }, { rootMargin: '-110px 0px 0px 0px' }).observe(heroCta);
+  }
+
   var rv = document.querySelectorAll('.rv');
   if (rv.length && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
