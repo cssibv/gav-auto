@@ -132,10 +132,15 @@
     try { localStorage.setItem(KEY, JSON.stringify({ c: c, t: Date.now() })); } catch (e) {}
   }
 
-  function startGA() {
+  // Consent Mode: eticheta Google se încarcă cu stocarea refuzată (fără cookie-uri) și trece pe „permis" doar la Accept
+  function loadGA(granted) {
     if (!GA_ID || window.gtag) return;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: granted ? 'granted' : 'denied'
+    });
     window.gtag('js', new Date());
     window.gtag('config', GA_ID);
     var s = document.createElement('script');
@@ -143,9 +148,14 @@
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
   }
+  function startGA() {
+    window['ga-disable-' + GA_ID] = false;
+    loadGA(true);
+    window.gtag('consent', 'update', { analytics_storage: 'granted' });
+  }
   function stopGA() {
-    if (!window.gtag) return;
-    window['ga-disable-' + GA_ID] = true;
+    window['ga-disable-' + GA_ID] = true; // după un refuz nu mai pleacă nimic spre Google
+    if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'denied' });
     document.cookie.split(';').forEach(function (c) {
       var name = c.split('=')[0].trim();
       if (name.indexOf('_ga') === 0) {
@@ -163,7 +173,7 @@
     bar.className = 'cookie-bar';
     bar.setAttribute('role', 'dialog');
     bar.setAttribute('aria-label', 'Cookie-uri');
-    bar.innerHTML = '<p><b>Cookie-uri</b>Folosim Google Analytics ca să vedem câți oameni ne vizitează site-ul și ce pagini caută. Îl pornim doar dacă ești de acord. <a href="' + BASE + 'confidentialitate/">Detalii</a></p>' +
+    bar.innerHTML = '<p><b>Cookie-uri</b>Folosim Google Analytics ca să vedem câți oameni ne vizitează site-ul și ce pagini caută. Punem cookie-uri de măsurare doar dacă ești de acord. <a href="' + BASE + 'confidentialitate/">Detalii</a></p>' +
       '<div class="cookie-actions">' +
       '<button type="button" class="btn btn-soft" data-c="denied">Refuz</button>' +
       '<button type="button" class="btn btn-primary" data-c="granted">Accept</button>' +
@@ -181,6 +191,7 @@
   var choice = read();
   if (choice === 'granted') startGA();
   else if (choice === null) {
+    loadGA(false);
     // nu acoperim primul ecran: bannerul apare la prima derulare sau după 12 secunde
     var asked = false;
     var ask = function () {
