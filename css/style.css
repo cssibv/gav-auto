@@ -782,3 +782,11 @@ form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .foot .lg-w{stroke:#ff5a5a}.foot .lg-k{fill:#ff5a5a}
 @media (max-width:920px){.logo-svg{height:66px}.nav{height:76px}}
 @media (max-width:560px){.logo-svg{height:62px}.foot .logo-svg{height:88px}}
+
+/* Navigation buttons under the map */
+.map-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.map-actions .btn{padding:13px 12px;font-size:0.98rem}
+.map-actions .btn svg{width:18px;height:18px;flex:0 0 auto}
+.btn-waze{background:#33ccff;color:#0b1f4d}
+.btn-waze:hover{background:#19bdf3;color:#0b1f4d}
+@media (max-width:400px){.map-actions{grid-template-columns:1fr}}
