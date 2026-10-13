@@ -802,3 +802,9 @@ form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media (max-width:1180px){.nav-tel{display:none}}
 .daune-more{margin:18px 0 0;font-weight:600}
 .daune-more a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.4);text-underline-offset:4px}
+
+/* Waze shortcut next to the address in the side panel */
+.cta-card .mini div{align-items:center}
+.cta-card .mini .waze-ic{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin-left:auto;border-radius:9px;background:#33ccff;text-decoration:none;flex:0 0 auto}
+.cta-card .mini .waze-ic:hover{background:#5cd8ff}
+.cta-card .mini .waze-ic svg{width:22px;height:22px;margin:0}
