@@ -114,7 +114,7 @@
 
 // Cookie-uri: Google Analytics pornește doar după ce vizitatorul acceptă
 (function () {
-  var GA_ID = ''; // ID de măsurare GA4 (G-XXXXXXXXXX); cât e gol, nu apare bannerul și nu se încarcă nimic
+  var GA_ID = (window.GAV_CONFIG || {}).GA_ID || ''; // vine din config.js, care există doar pe server; fără el nu apare bannerul și nu se încarcă nimic
   var PREVIEW = /^(127\.0\.0\.1|localhost)$/.test(location.hostname); // pe copia locală bannerul apare și fără ID
   if (!GA_ID && !PREVIEW) return;
 
@@ -217,7 +217,7 @@
 
 // Formularul de ofertă: deschide WhatsApp cu mesajul gata scris și trimite o copie pe email
 (function () {
-  var FORM_EMAIL = ''; // adresa pe care vine copia cererii (prin Formsubmit); cât e goală, se deschide doar WhatsApp
+  var FORM_EMAIL = (window.GAV_CONFIG || {}).FORM_EMAIL || ''; // adresa pe care vine copia cererii (prin Formsubmit); cât e goală, se deschide doar WhatsApp
   var form = document.querySelector('form[data-wa]');
   if (!form) return;
   form.addEventListener('submit', function (e) {
