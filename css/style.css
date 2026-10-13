@@ -666,3 +666,31 @@ form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media (max-width:640px){.page-hero.photo.low-subject{padding-bottom:150px}}
 /* No decorative dash before labels */
 .eyebrow::before{display:none}
+
+/* Side panel on service pages: rating, open-now line, one main button */
+.cta-card{top:128px}
+.cta-card h3{font-size:1.4rem;line-height:1.2}
+.cta-card .cc-rev{display:flex;align-items:center;gap:9px;margin:0 0 16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.14);color:#dbe4f5;font-size:0.92rem}
+.cta-card .cc-rev b{color:#fff}
+.cta-card .cc-rev:hover{color:#fff}
+.cta-card .cc-rev .rating-stars{font-size:1rem}
+.cta-card .cc-rev .rating-stars::before{color:rgba(255,255,255,0.28)}
+.cc-open{display:flex;align-items:center;gap:9px;margin:0 0 14px;font-size:0.92rem;font-weight:600;color:#7ee2a4}
+.cc-open[hidden]{display:none}
+.cc-open .dot{width:9px;height:9px;border-radius:50%;background:#25d366;box-shadow:0 0 0 4px rgba(37,211,102,0.2);flex:0 0 auto}
+.cc-open.closed{color:#aebbd6}
+.cc-open.closed .dot{background:#8a96b0;box-shadow:none}
+.cta-card .btn svg{width:19px;height:19px;flex:0 0 auto}
+.cta-card .btn-wa{margin-top:0;padding:17px 22px;font-size:1.06rem;box-shadow:0 12px 24px -12px rgba(37,211,102,0.8)}
+.cta-card .btn-line{margin-top:10px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.35)}
+.cta-card .btn-line:hover{background:rgba(255,255,255,0.08);border-color:#fff;color:#fff}
+.cta-card.call-first .btn-red{padding:17px 22px;font-size:1.06rem}
+.cta-card.call-first .btn-wa{margin-top:10px;padding:14px 22px;font-size:1rem;box-shadow:none}
+.cta-card .mini a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.3);text-underline-offset:3px}
+.cta-card .mini a:hover{color:#fff}
+.inline-cta{display:none}
+@media (max-width:920px){
+  .prose .inline-cta{display:flex;flex-direction:column;gap:12px;margin:22px 0 4px;padding:18px;border-radius:14px;background:var(--navy)}
+  .prose .inline-cta b{color:#fff;font-family:var(--disp);font-size:1.12rem;line-height:1.25}
+  .prose .inline-cta .btn{width:100%;color:#fff;text-decoration:none}
+}

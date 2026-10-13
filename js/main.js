@@ -68,6 +68,28 @@
     if (range) range.addEventListener('input', function () { set(+range.value); });
   });
 
+  // „Deschis acum" în panoul lateral (Luni - Vineri 08:30 - 17:00, ora României)
+  var openNow = document.querySelectorAll('[data-open-now]');
+  if (openNow.length && window.Intl && Intl.DateTimeFormat.prototype.formatToParts) {
+    try {
+      var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Bucharest', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+      var part = function (t) { for (var i = 0; i < parts.length; i++) { if (parts[i].type === t) return parts[i].value; } };
+      var day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(part('weekday'));
+      var min = (+part('hour') % 24) * 60 + (+part('minute'));
+      var workday = day >= 1 && day <= 5;
+      var isOpen = workday && min >= 510 && min < 1020;
+      var txt = isOpen ? 'Deschis acum, până la 17:00'
+        : workday && min < 510 ? 'Închis acum. Deschidem azi la 08:30'
+        : day >= 1 && day <= 4 ? 'Închis acum. Deschidem mâine la 08:30'
+        : 'Închis acum. Deschidem luni la 08:30';
+      openNow.forEach(function (el) {
+        el.querySelector('.t').textContent = txt;
+        if (!isOpen) el.classList.add('closed');
+        el.hidden = false;
+      });
+    } catch (err) {}
+  }
+
   var rv = document.querySelectorAll('.rv');
   if (rv.length && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
