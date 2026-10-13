@@ -762,3 +762,9 @@ form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .hero-open.closed .ho-row:first-child{color:var(--ink-2)}
   .hero-open.closed .dot{background:#8a96b0;box-shadow:none}
 }
+
+/* Footer credit */
+.legal .credit a{color:#fff;font-weight:700}
+.legal .credit a:hover{text-decoration:underline}
+/* keep the last footer item clear of the floating WhatsApp button */
+@media (min-width:921px) and (max-width:1360px){.legal{padding-right:64px}}
