@@ -787,6 +787,7 @@ form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .map-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 .map-actions .btn{padding:13px 12px;font-size:0.98rem}
 .map-actions .btn svg{width:18px;height:18px;flex:0 0 auto}
+.map-actions .btn-waze svg{width:22px;height:22px}
 .btn-waze{background:#33ccff;color:#0b1f4d}
 .btn-waze:hover{background:#19bdf3;color:#0b1f4d}
 @media (max-width:400px){.map-actions{grid-template-columns:1fr}}
