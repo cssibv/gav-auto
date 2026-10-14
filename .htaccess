@@ -6,6 +6,13 @@ RewriteRule ^ https://gavauto.ro%{REQUEST_URI} [L,R=301]
 ErrorDocument 404 /404.html
 
 <IfModule mod_headers.c>
+Header always set Strict-Transport-Security "max-age=31536000"
+<FilesMatch "\.(css|js|woff2)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+<FilesMatch "\.(webp|jpg|png|svg|ico)$">
+Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
 <Files "config.js">
 Header set Cache-Control "no-cache"
 </Files>
