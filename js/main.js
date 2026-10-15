@@ -146,7 +146,10 @@
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
+    // eticheta se încarcă după pagină, ca să nu concureze cu poza din primul ecran; evenimentele așteaptă în dataLayer
+    var add = function () { document.head.appendChild(s); };
+    if (document.readyState === 'complete') add();
+    else window.addEventListener('load', function () { setTimeout(add, 0); });
   }
   function startGA() {
     window['ga-disable-' + GA_ID] = false;
