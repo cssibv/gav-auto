@@ -164,7 +164,7 @@
   function startGA() {
     window['ga-disable-' + GA_ID] = false;
     loadGA(true);
-    window.gtag('consent', 'update', { analytics_storage: 'granted' });
+    if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'granted' });
   }
   function stopGA() {
     window['ga-disable-' + GA_ID] = true; // după un refuz nu mai pleacă nimic spre Google
@@ -186,20 +186,32 @@
     bar.className = 'cookie-bar';
     bar.setAttribute('role', 'dialog');
     bar.setAttribute('aria-label', 'Cookie-uri');
-    bar.innerHTML = '<p><b>Cookie-uri</b>Folosim Google Analytics ca să vedem câți oameni ne vizitează site-ul și ce pagini caută. Punem cookie-uri de măsurare doar dacă ești de acord. <a href="' + BASE + 'confidentialitate/">Detalii</a></p>' +
+    bar.innerHTML = '<p>Folosim cookie-uri pentru statistici anonime, ca să înțelegem cum este folosit site-ul și să-l îmbunătățim. Le activăm doar cu acordul tău. Detalii în <a href="' + BASE + 'confidentialitate/">Politica de confidențialitate</a>.</p>' +
       '<div class="cookie-actions">' +
-      '<button type="button" class="btn btn-soft" data-c="denied">Refuz</button>' +
-      '<button type="button" class="btn btn-primary" data-c="granted">Accept</button>' +
+      '<button type="button" class="btn btn-out" data-c="denied">Refuz</button>' +
+      '<button type="button" class="btn btn-light" data-c="granted">Accept</button>' +
       '</div>';
     bar.addEventListener('click', function (e) {
       var c = e.target.getAttribute && e.target.getAttribute('data-c');
       if (!c) return;
       save(c);
-      if (c === 'granted') startGA(); else stopGA();
       bar.remove();
+      fab.hidden = false;
+      if (c === 'granted') startGA(); else stopGA();
     });
     document.body.appendChild(bar);
+    fab.hidden = true;
   }
+
+  // fursecul din colț redeschide bannerul oricând
+  var fab = document.createElement('button');
+  fab.type = 'button';
+  fab.className = 'cookie-fab';
+  fab.setAttribute('aria-label', 'Setări cookie-uri');
+  fab.title = 'Setări cookie-uri';
+  fab.textContent = '🍪';
+  fab.addEventListener('click', show);
+  document.body.appendChild(fab);
 
   var choice = read();
   if (choice === 'granted') startGA();
