@@ -146,10 +146,20 @@
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    // eticheta se încarcă după pagină, ca să nu concureze cu poza din primul ecran; evenimentele așteaptă în dataLayer
-    var add = function () { document.head.appendChild(s); };
-    if (document.readyState === 'complete') add();
-    else window.addEventListener('load', function () { setTimeout(add, 0); });
+    // eticheta se încarcă la prima interacțiune sau la 4 s după încărcarea paginii, ca să nu întârzie primul ecran;
+    // evenimentele așteaptă între timp în dataLayer
+    var EVENTS = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+    var added = false;
+    var add = function () {
+      if (added) return;
+      added = true;
+      EVENTS.forEach(function (n) { window.removeEventListener(n, add); });
+      document.head.appendChild(s);
+    };
+    EVENTS.forEach(function (n) { window.addEventListener(n, add, { passive: true }); });
+    var later = function () { setTimeout(add, 4000); };
+    if (document.readyState === 'complete') later();
+    else window.addEventListener('load', later);
   }
   function startGA() {
     window['ga-disable-' + GA_ID] = false;
