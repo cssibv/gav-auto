@@ -853,7 +853,9 @@ form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .nav-cta.wa:hover{background:#1eb858}
 .nav-cta.wa svg{fill:currentColor;stroke:none}
 .nav{gap:22px}
-@media (max-width:1180px){.nav-tel{display:none}}
+.nav-tels{display:flex;flex-direction:column;gap:3px}
+.nav-tels .nav-tel{font-size:0.92rem;line-height:1.2}
+@media (max-width:1180px){.nav-tels{display:none}}
 .daune-more{margin:18px 0 0;font-weight:600}
 .daune-more a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.4);text-underline-offset:4px}
 
