@@ -196,22 +196,10 @@
       if (!c) return;
       save(c);
       bar.remove();
-      fab.hidden = false;
       if (c === 'granted') startGA(); else stopGA();
     });
     document.body.appendChild(bar);
-    fab.hidden = true;
   }
-
-  // fursecul din colț redeschide bannerul oricând
-  var fab = document.createElement('button');
-  fab.type = 'button';
-  fab.className = 'cookie-fab';
-  fab.setAttribute('aria-label', 'Setări cookie-uri');
-  fab.title = 'Setări cookie-uri';
-  fab.textContent = '🍪';
-  fab.addEventListener('click', show);
-  document.body.appendChild(fab);
 
   var choice = read();
   if (choice === 'granted') startGA();
