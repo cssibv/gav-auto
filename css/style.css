@@ -700,6 +700,8 @@ section[id],form[id]{scroll-margin-top:136px}
 .callbar a{flex:1 1 50%;display:flex;align-items:center;justify-content:center;gap:9px;padding:15px 8px;color:#fff;font-weight:700}
 .callbar a.wa{background:#25d366;color:#0b1f4d}
 .callbar a.wa svg{fill:currentColor;stroke:none}
+.callbar a{flex:1 1 0;min-width:0;flex-direction:column;gap:4px;padding:9px 4px;font-size:0.86rem;line-height:1.15;white-space:nowrap}
+.callbar a.tel+a.tel{border-left:1px solid rgba(255,255,255,0.25)}
 @media (max-width:640px){
   .wa-fab{display:none}
   .hero .cta-row .lg{display:none}
