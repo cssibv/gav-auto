@@ -177,7 +177,7 @@
       }
     });
   }
-  function track(name) { if (window.gtag) window.gtag('event', name); }
+  function track(name, params) { if (window.gtag) window.gtag('event', name, params || {}); }
 
   function show() {
     if (document.getElementById('cookie-bar')) return;
@@ -230,11 +230,34 @@
   }
 
   // ce contează pentru service: apel, WhatsApp, formular
+  // fiecare click spune în GA4 ce număr („telefon”) și din ce loc al paginii („buton”)
+  var TELEFOANE = { '0740039598': 'Telefon 1 (Adi)', '0740040220': 'Telefon 2' };
+  var LOCURI = [
+    ['.site-top', 'antet'],
+    ['.callbar', 'bara de jos (mobil)'],
+    ['.wa-fab', 'buton plutitor WhatsApp'],
+    ['.hero, .page-hero', 'primul ecran'],
+    ['#daune', 'sectiunea daune'],
+    ['.form-alt', 'sub formular'],
+    ['#contact', 'sectiunea contact'],
+    ['.cta-card', 'panou lateral'],
+    ['.inline-cta', 'caseta din text (mobil)'],
+    ['.qp-list', 'contact rapid'],
+    ['.prose', 'in text']
+  ];
+  function loc(a) {
+    for (var i = 0; i < LOCURI.length; i++) if (a.closest(LOCURI[i][0])) return LOCURI[i][1];
+    return 'altundeva';
+  }
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a') : null;
     var href = a ? a.getAttribute('href') || '' : '';
-    if (href.indexOf('tel:') === 0) track('click_telefon');
-    else if (href.indexOf('wa.me') > -1) track('click_whatsapp');
+    if (href.indexOf('tel:') === 0) {
+      var nr = href.slice(4).replace(/\D/g, '');
+      track('click_telefon', { telefon: TELEFOANE[nr] || nr, buton: loc(a) });
+    } else if (href.indexOf('wa.me') > -1) {
+      track('click_whatsapp', { telefon: 'Telefon 1 (Adi)', buton: loc(a) });
+    }
   });
   document.addEventListener('submit', function () { track('generate_lead'); });
 })();
