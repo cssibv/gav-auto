@@ -262,7 +262,7 @@
   document.addEventListener('submit', function () { track('generate_lead'); });
 })();
 
-// Formularul de ofertă: deschide WhatsApp cu mesajul gata scris și trimite o copie pe email
+// Formularul de programare: deschide WhatsApp cu mesajul gata scris și trimite o copie pe email
 (function () {
   var FORM_EMAIL = (window.GAV_CONFIG || {}).FORM_EMAIL || ''; // adresa pe care vine copia cererii (prin Formsubmit); cât e goală, se deschide doar WhatsApp
   var form = document.querySelector('form[data-wa]');
@@ -278,14 +278,14 @@
       'Am nevoie de': f.serviciu.value,
       Detalii: f.detalii.value.trim()
     };
-    var lines = ['Bună ziua, aș dori o ofertă de la GAV Auto.'];
+    var lines = ['Bună ziua, aș dori o programare la GAV Auto.'];
     Object.keys(data).forEach(function (k) { if (data[k]) lines.push(k + ': ' + data[k]); });
 
     // WhatsApp se deschide primul, direct din click, altfel browserul îl blochează ca pop-up
-    window.open('https://wa.me/' + form.getAttribute('data-wa') + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+    window.open('https://wa.me/' + form.getAttribute('data-wa') + '?text=' + encodeURIComponent(lines.concat('', '[gavauto.ro]').join('\n')), '_blank', 'noopener');
 
     if (FORM_EMAIL && window.fetch) {
-      data._subject = 'Cerere de ofertă de pe site: ' + data.Nume;
+      data._subject = 'Cerere de programare de pe site: ' + data.Nume;
       data._template = 'table';
       data._captcha = 'false';
       fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
