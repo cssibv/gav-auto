@@ -26,5 +26,6 @@
 - [Când se încarcă freonul la mașină](https://gavauto.ro/blog/cand-incarci-freonul-la-masina/)
 - [Cum treci ITP-ul din prima: checklist 2026](https://gavauto.ro/blog/cum-treci-itp-ul-fara-probleme/)
 - [Verificare valabilitate ITP](https://gavauto.ro/blog/verificare-valabilitate-itp/)
+- [ITP la mașină nouă: când se face primul ITP](https://gavauto.ro/blog/itp-masina-noua/)
 - [Constatare amiabilă online](https://gavauto.ro/blog/constatare-amiabila-online/)
 - [Frâne încinse la coborâre](https://gavauto.ro/blog/frane-incinse-la-coborare/)
